@@ -1,0 +1,15 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-left: 20px;
+  #temp-field {
+    width: 100px;
+  }
+  #date-field {
+    width: 180px;
+  }
+  #summary-field {
+    width: 380px;
+  }
+}

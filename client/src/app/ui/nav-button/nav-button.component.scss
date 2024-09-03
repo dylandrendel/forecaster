@@ -1,0 +1,34 @@
+@use "../../styles/theme.scss" as my;
+@use "@angular/material" as mat;
+
+.nav-button {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 20px;
+  color: mat.get-theme-color(my.$theme, on-background);
+
+  .mat-mdc-icon-button {
+    color: mat.get-theme-color(my.$theme, on-background);
+    width: 64px;
+    border-radius: 20px;
+    transform: scale(1);
+    &:hover {
+      mat-icon {
+        transition: all 0.1s;
+        transform: scale(1.05);
+      }
+    }
+  }
+  &.active {
+    font-weight: 600;
+    .mat-mdc-icon-button {
+      background-color: mat.get-theme-color(my.$theme, primary, 80);
+      color: mat.get-theme-color(my.$theme, on-primary-fixed);
+    }
+  }
+}

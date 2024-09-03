@@ -1,0 +1,48 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-nav-list>
+      <!-- <app-nav-button link="home" label="Home" icon="home"></app-nav-button> -->
+      <app-nav-button
+        link="weather-forecast"
+        label="Weather"
+        icon="partly_cloudy_day"
+      ></app-nav-button>
+      <app-nav-button
+        link="my-day"
+        label="My Day"
+        icon="routine"
+      ></app-nav-button>
+      <app-nav-button
+        link="goals"
+        label="Goals"
+        icon="track_changes"
+      ></app-nav-button>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    @if (isHandset$ | async) {
+    <mat-toolbar class="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Cool App</span>
+    </mat-toolbar>
+    }
+
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

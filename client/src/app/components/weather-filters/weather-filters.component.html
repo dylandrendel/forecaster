@@ -1,0 +1,49 @@
+<div class="row">
+  <mat-form-field id="temp-field">
+    <mat-label>Above</mat-label>
+    <input
+      matInput
+      id="temp"
+      type="number"
+      [(ngModel)]="wfService.tempFilter"
+      placeholder="Above"
+    />
+    <span matTextSuffix>&#176;C</span>
+  </mat-form-field>
+  <mat-form-field id="temp-field">
+    <mat-label>Above</mat-label>
+    <input
+      disabled
+      matInput
+      id="temp"
+      type="number"
+      [ngModel]="wfService.tempFilterF()"
+      placeholder="Above"
+    />
+    <span matTextSuffix>&#176;F</span>
+  </mat-form-field>
+  <mat-form-field id="date-field">
+    <mat-label>After</mat-label>
+    <input
+      matInput
+      id="date"
+      [(ngModel)]="wfService.dateFilter"
+      [matDatepicker]="picker"
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field id="summary-field">
+    <mat-label>Summary</mat-label>
+    <mat-select
+      id="summary"
+      [(ngModel)]="wfService.summaryFilter"
+      placeholder="Summary"
+      multiple="true"
+    >
+      @for (summary of summaries; track $index) {
+      <mat-option [value]="summary">{{ summary }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</div>

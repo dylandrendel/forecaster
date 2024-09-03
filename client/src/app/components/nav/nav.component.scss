@@ -1,0 +1,31 @@
+@use "../../styles/theme.scss" as my;
+@use "@angular/material" as mat;
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 100px;
+  background-color: mat.get-theme-color(my.$theme, surface-dim);
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: mat.get-theme-color(my.$theme, surface-dim);
+}
+
+.content-container {
+  padding: 24px;
+}
+
+.nav-link {
+  width: 100%;
+  justify-content: flex-start;
+}
